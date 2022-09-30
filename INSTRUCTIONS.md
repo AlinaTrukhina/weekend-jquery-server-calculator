@@ -1,3 +1,73 @@
+Req:
+2 inputs
+4 buttons
+submit
+clear
+
+*** Base Mode ***
+client - POST
+sends object {
+- input a
+- input b
+- operator - get it from DOM, based on what cell in table is clicked (use jQuery)
+- answer (blank)
+}
+
+client - GET
+gets array that includes answer in object
+- render()
+
+client - DELETE
+- sends a DELETE request
+
+server - app.post
+- store input values - push to calculations array
+- send back a status 201
+
+server - app.get
+- Call up function to perform operation.
+- Switch function!
+- add result to last calc object in array
+- response to client: array
+
+server - app.delete
+- 
+
+*** Stretch Mode ***
+1
+client.js
+ - inputs - if empty on submit, alert "fill all inputs", return
+
+2
+Clear history when clicking button
+- 
+
+## TODO List
+
+[] create base file
+[] public
+  [] html 
+    [] inputs
+  [] css
+  [] client.js
+    - inputs - if empty on submit, alert "fill all inputs", return
+    - clear inputs on submit
+[] server
+  [] server.js
+    - calculations = [];
+  [] functions.js
+
+
+
+
+
+
+
+
+
+
+
+
 # Weekend Challenge: Server Side Calculator
 
 Welcome to the weekend challenge!

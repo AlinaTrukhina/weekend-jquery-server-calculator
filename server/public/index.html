@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <script src="client.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Caluclator</title>
+</head>
+<body>
+    <h1>Server Side Calculator</h1>
+    <form id="inputForm">
+        <label for="inputA">
+            <input id="inputA" type="number" min="0">
+        </label>
+            <table>
+                <tr>
+                    <td>
+                        <button type="button" id="plusBtn">+</button>
+                    </td>
+                    <td>
+                        <button type="button" id="minusBtn">-</button>
+                    </td>
+                    <td>
+                        <button type="button" id="multiplyBtn">*</button>
+                    </td>
+                    <td>
+                        <button type="button" id="deleteBtn">/</button>
+                    </td>
+                </tr>
+            </table>
+        <label for="inputB">
+            <input id="inputB" type="number" min="0">
+        </label>
+        <button type="submit" id="equalsBtn">=</button>
+    </form>
+
+    <h2>TEST ANSWER</h2>
+
+    <table>
+        <thead>
+            <th>Input 1</th>
+            <th>Operator</th>
+            <th>Input 2</th>
+            <th>Answer</th>
+        </thead>
+        <tbody id="calcTable">
+            
+        </tbody>
+    </table>
+</body>
+</html>
