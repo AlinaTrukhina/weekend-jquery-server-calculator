@@ -49,6 +49,7 @@ app.listen(3000, () => {
 function solver(lastCalc) {
   console.log('in solver:', lastCalc);
   solution = lastCalc[0];
+  console.log('starting solution', solution);
    for (let i = 1; i<lastCalc.length; i+2) {
     switch (lastCalc[i]) {
       case '+': solution = solution + Number(lastCalc[i+1]);
