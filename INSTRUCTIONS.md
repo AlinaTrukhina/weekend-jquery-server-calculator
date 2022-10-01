@@ -35,7 +35,7 @@ DONE server - app.get
 - add result to last calc object in array
 - response to client: array
 
-server - app.delete
+DONE server - app.delete
 - 
 
 *** Stretch Mode ***
@@ -43,10 +43,12 @@ DONE 1
 client.js
  - inputs - if empty on submit, alert "fill all inputs", return
 
-2
+DONE 2
 Clear history when clicking button
 - 
 
+DONE 3
+Implement a realistic looking calculator
 ## TODO List
 
 [x] create base file
