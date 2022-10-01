@@ -98,14 +98,14 @@ function clearInputs() {
 // DELETE data from server
 function deleteHistory() {
     $.ajax({
-        url: '/calcs',
+        url: '/delete',
         method: 'DELETE'
     })  
 
     .then(response => {
-        getSolutions();
+        calculations = response;
         console.log('calculations arr', response);
-        render();
+        $('#calcList').empty();
     })
 
     .catch((err) => {
@@ -115,11 +115,15 @@ function deleteHistory() {
 
 function render() {
     console.log('in render');
+    $('#answerField').text(`${calculations[calculations.length-1].solution}`);
+    $('#calcList').empty();
     console.log(calculations[0].inputA);
     for (let i=0; i < calculations.length; i++) {
     $('#calcList').append(`
+    <li>
     ${calculations[i].inputA} ${calculations[i].operator} ${calculations[i].inputB} 
     = ${calculations[i].solution}
+    </li>
     `);
     }
     // empty table in DOM

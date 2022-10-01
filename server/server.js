@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const calculations = [];
+let calculations = [];
 
 // This must be added before GET & POST routes.
 app.use(bodyParser.urlencoded({extended:true}))
@@ -21,7 +21,7 @@ app.post('/calc', (req, res) => {
 
 // send calc array to getSolutions() in client
 app.get('/calc', (req, res) => {
-
+  if (calculations === []) { return;}
   // get last item in array
   let lastCalc = calculations[calculations.length-1];
 
@@ -32,6 +32,13 @@ app.get('/calc', (req, res) => {
   res.send(calculations); // sends array to client
 
 }); // end GET
+
+// DELETE stuff
+app.delete('/delete', (req, res) => {
+  calculations = [];
+  console.log('new array = ', calculations);
+  res.send(calculations);
+});
 
 app.listen(3000, () => {
     console.log ('Server is running on port 3000');
