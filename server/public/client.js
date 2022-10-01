@@ -30,6 +30,9 @@ console.log('so ready');
 function addInput() {
     inputSingleDigit = $(this).data('input');
 //     console.log('inputSingleDigit', inputSingleDigit);
+    if (inputString === '0') {
+        inputString = ''; // reset string to nothing so that the leading zero doesn't appear
+    }
     inputString = inputString + inputSingleDigit;
 //    console.log('inputString', inputString);
     $('#inputA').text(inputString);
@@ -90,6 +93,7 @@ function getSolutions() {
     .then(response => {
         calculations = response;
         console.log('calculations arr', calculations);
+        inputString = calculations[calculations.length-1].solution;
         render();
     })
 
@@ -100,10 +104,9 @@ function getSolutions() {
 }; // end getSolutions()
 
 function clearInputs() {
-    inputString = ''; // clear
+    inputString = '0'; // clear
     console.log('in clear', inputString);
     $('#inputA').text('0');
-
 }
 
 // DELETE data from server
@@ -116,17 +119,19 @@ function deleteHistory() {
     .then(response => {
         calculations = response;
         console.log('calculations arr', response);
-        $('#calcList').empty();
+        render();
     })
 
     .catch((err) => {
         console.log('GET error:', err);
     })
+    clearInputs();
 }
 
 function render() {
     console.log('in render');
-    $('#answerField').text(`${calculations[calculations.length-1].solution}`);
+    $('#answerField').text(`${inputString}`);
+    $('#inputA').text(`${inputString}`);
     $('#calcList').empty();
     console.log(calculations[0].inputA);
     for (let i=0; i < calculations.length; i++) {
