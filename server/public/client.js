@@ -13,6 +13,7 @@ console.log('so ready');
     $('#deleteBtn').on('click', selectDivide);
 
     $('#equalsBtn').on('click', onEquals);
+    $('#equalsBtn').on('click', getSolutions);
 // render here or put it in a function below (GET?)
 //    render();
 }
@@ -49,19 +50,37 @@ function onEquals(evt) {
 
     .then(response => {
         console.log('POST calc inputs response', response);
+
     })
 
     .catch((err) => {
         console.log('POST error', err);
-    });
+    })
 
     $('#inputA').val('') // clear
     $('#inputB').val('') // clear
     operator = ''        // clear
 
-    getSolutions();
 }
+
 // GET new array with answers from server
+function getSolutions(evt) {
+    evt.preventDefault();
+    console.log('in getSolutions');
+    $.ajax({
+        url: '/calc',
+        method: 'GET'
+    })    
+
+    .then(response => {
+        calculations = response;
+        console.log('solutins arr', calculations);
+    })
+
+    .catch((err) => {
+        console.log('GET error:', err);
+    })
+}; // end getSolutions()
 
 // DELETE data from server
 
