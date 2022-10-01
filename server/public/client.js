@@ -17,7 +17,7 @@ console.log('so ready');
     $('#equalsBtn').on('click', onEquals);
     $('#equalsBtn').on('click', getSolutions);
 
-//    $('#clearBtn').on('click', clearInputs);
+    $('#clearBtn').on('click', clearInputs);
     
     $('#deleteHistBtn').on('click', deleteHistory);
 
@@ -29,14 +29,14 @@ console.log('so ready');
 
 function addInput() {
     inputSingleDigit = $(this).data('input');
-    // console.log('inputSingleDigit', inputSingleDigit);
+//     console.log('inputSingleDigit', inputSingleDigit);
     inputString = inputString + inputSingleDigit;
-    console.log('inputString', inputString);
+//    console.log('inputString', inputString);
     $('#inputA').text(inputString);
-    if (inputSingleDigit === '+' ||
-    inputSingleDigit === '-' ||
-    inputSingleDigit === '*' ||
-    inputSingleDigit === '/') {
+    if (inputSingleDigit === ' + ' ||
+    inputSingleDigit === ' - ' ||
+    inputSingleDigit === ' * ' ||
+    inputSingleDigit === ' / ') {
         $('.operator').attr('disabled', true);
     } else {$('.operator').attr('disabled', false);
     }
@@ -61,7 +61,7 @@ function onEquals(evt) {
         inputA : inputString, // string
         solution : ''                // string (will be converted to numer later)
     }
-    console.log(newCalc);
+    //console.log(newCalc);
 
     $.ajax({
         url: '/calc',
@@ -76,7 +76,6 @@ function onEquals(evt) {
     .catch((err) => {
         console.log('POST error', err);
     })
-
 }
 
 // GET new array with answers from server
@@ -89,26 +88,23 @@ function getSolutions() {
     })    
 
     .then(response => {
-//         calculations = response;
+        calculations = response;
         console.log('calculations arr', calculations);
-//         render();
+        render();
     })
 
     .catch((err) => {
         console.log('GET solutions error:', err);
     })
 
-
-
 }; // end getSolutions()
 
+function clearInputs() {
+    inputString = ''; // clear
+    console.log('in clear', inputString);
+    $('#inputA').text('0');
 
-
-// function clearInputs() {
-//     $('#inputA').val('') // clear
-//     $('#inputB').val('') // clear
-//     operator = ''        // clear
-// }
+}
 
 // DELETE data from server
 function deleteHistory() {
@@ -136,8 +132,7 @@ function render() {
     for (let i=0; i < calculations.length; i++) {
     $('#calcList').append(`
     <li>
-    ${calculations[i].inputA} ${calculations[i].operator} ${calculations[i].inputB} 
-    = ${calculations[i].solution}
+    ${calculations[i].inputA} = ${calculations[i].solution}
     </li>
     `);
     }
