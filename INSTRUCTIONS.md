@@ -10,7 +10,7 @@ called by event listener.
 figures out where in the table it is and saves info in global variable.
 variable then used by onEquals().
 
-client - POST - onEquals()
+DONE: client - POST - onEquals()
 sends object {
 - input a
 - input b
@@ -25,7 +25,7 @@ gets array that includes answer in object
 client - DELETE
 - sends a DELETE request
 
-server - app.post
+DONE server - app.post
 - store input values - push to calculations array
 - send back a status 201
 
@@ -49,14 +49,14 @@ Clear history when clicking button
 
 ## TODO List
 
-[] create base file
+[x] create base file
 [] public
-  [] html 
-    [] inputs
+  [x] html 
+    [x] inputs
   [] css
   [] client.js
-    - inputs - if empty on submit, alert "fill all inputs", return
-    - clear inputs on submit
+    x - inputs - if empty on submit, alert "fill all inputs", return
+    x - clear inputs on submit
 [] server
   [] server.js
     - calculations = [];
