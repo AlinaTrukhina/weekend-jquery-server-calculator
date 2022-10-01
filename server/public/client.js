@@ -14,6 +14,8 @@ console.log('so ready');
 
     $('#equalsBtn').on('click', onEquals);
     $('#equalsBtn').on('click', getSolutions);
+
+
 // render here or put it in a function below (GET?)
 //    render();
 }
@@ -64,8 +66,8 @@ function onEquals(evt) {
 }
 
 // GET new array with answers from server
-function getSolutions(evt) {
-    evt.preventDefault();
+function getSolutions() {
+    
     console.log('in getSolutions');
     $.ajax({
         url: '/calc',
@@ -74,14 +76,44 @@ function getSolutions(evt) {
 
     .then(response => {
         calculations = response;
-        console.log('solutins arr', calculations);
+        console.log('calculations arr', calculations);
+        render();
     })
 
     .catch((err) => {
         console.log('GET error:', err);
     })
+
+
+
 }; // end getSolutions()
 
 // DELETE data from server
 
 // call the get function
+
+
+function render() {
+    console.log('in render');
+    console.log(calculations[0].inputA);
+    for (let i=0; i < calculations.length; i++) {
+    $('#calcList').append(`
+    ${calculations[i].inputA} ${calculations[i].operator} ${calculations[i].inputB} 
+    = ${calculations[i].solution}
+    `);
+    }
+    // empty table in DOM
+    //$('.newrow').remove();
+
+    // put calc array in DOM
+    // for (let i=0; i < calculations.length; i++) {
+    //     $('#calcTable').append(`
+    //     <tr class="newrow>
+    //         <td>${calculations[i].inputA}</td>
+    //         <td>${calculations[i].operator}</td>
+    //         <td>${calculations[i].inputB}</td>
+    //         <td>${calculations[i].solution}</td>
+    //     </tr>
+    //     `)
+    //}
+}
