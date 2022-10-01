@@ -23,6 +23,16 @@ h1 {
     margin-left: 3px;
 }
 
+#equalsBtn {
+    width: 50px;
+    height: 30px;
+}
+
+#inputA {
+    font-size: large;
+    margin: 4px;
+}
+
 #calculatordiv {
     background-color: #363535;
     color: white;
