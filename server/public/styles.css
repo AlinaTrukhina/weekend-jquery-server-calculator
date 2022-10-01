@@ -1,0 +1,37 @@
+html {
+    background-color: #b9c0cb;
+    color: black;
+}
+
+h1 {
+    font-size: x-large;
+}
+
+.inputbtn {
+    width: 50px;
+    height: 30px;
+}
+
+.operator {
+    width: 50px;
+    height: 30px;
+}
+
+#clearBtn {
+    width: 50px;
+    height: 30px;
+    margin-left: 3px;
+}
+
+#calculatordiv {
+    background-color: #363535;
+    color: white;
+    border: 5px solid black;
+    width: fit-content;
+    padding: 5px;
+}
+
+#deleteHistBtn {
+    margin: 4px 3px;
+    height: 30px;
+}
