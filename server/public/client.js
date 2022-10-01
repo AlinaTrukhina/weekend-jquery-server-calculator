@@ -3,6 +3,7 @@ $(document).ready(onReady);
 let calculations = [];
 //let operator = '';
 let inputString = '';
+let inputSingleDigit = '';
 
 function onReady() {
 console.log('so ready');
@@ -32,6 +33,14 @@ function addInput() {
     console.log('inputSingleDigit', inputSingleDigit);
     inputString = inputString + inputSingleDigit;
     console.log('inputString', inputString);
+    $('#inputA').text(inputString);
+    if (inputSingleDigit === '+' ||
+    inputSingleDigit === '-' ||
+    inputSingleDigit === '*' ||
+    inputSingleDigit === '/') {
+        $('.operator').attr('disabled', true);
+    } else {$('.operator').attr('disabled', false);
+    }
 } //end addInput
 
 // selectPlus = () => operator = '+';
@@ -43,16 +52,14 @@ function addInput() {
 function onEquals(evt) {
     evt.preventDefault();
 
-    if ($('#inputA').val() == '') {
-        alert('please input values and click on operator')
+    if (inputString == '') {
+        alert('only numbers and')
         return;
     }
 
     // create new object to send to server
     newCalc = {
-        inputA : $('#inputA').val(), // number
-        inputB : $('#inputB').val(), // number
-        operator : operator,         // string
+        inputA : inputString, // string
         solution : ''                // string (will be converted to numer later)
     }
     console.log(newCalc);
