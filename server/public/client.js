@@ -7,10 +7,10 @@ function onReady() {
 console.log('so ready');
 // event listeners
 
-    $('#plusBtn').on('click', selectPlus);
-    $('#minusBtn').on('click', selectMinus);
-    $('#multiplyBtn').on('click', selectMultiply);
-    $('#deleteBtn').on('click', selectDivide);
+    // $('#plusBtn').on('click', selectPlus);
+    // $('#minusBtn').on('click', selectMinus);
+    // $('#multiplyBtn').on('click', selectMultiply);
+    // $('#divideBtn').on('click', selectDivide);
 
     $('#equalsBtn').on('click', onEquals);
     $('#equalsBtn').on('click', getSolutions);
@@ -19,21 +19,27 @@ console.log('so ready');
     
     $('#deleteHistBtn').on('click', deleteHistory);
 
+    $('table').on('click', '.inputbtn', addInput);
+
+
 // render here or put it in a function below (GET?)
 //    render();
 }
 
-selectPlus = () => operator = '+';
-selectMinus = () => operator = '-';
-selectMultiply = () => operator = '*';
-selectDivide = () => operator = '/';
+function addInput() {
+    console.log('in addInput');
+} //end addInput
+
+// selectPlus = () => operator = '+';
+// selectMinus = () => operator = '-';
+// selectMultiply = () => operator = '*';
+// selectDivide = () => operator = '/';
 
 // POST input data to server
 function onEquals(evt) {
     evt.preventDefault();
 
-    if ($('#inputA').val() == '' || $('#inputB').val() == 0 || 
-    operator == '') {
+    if ($('#inputA').val() == '') {
         alert('please input values and click on operator')
         return;
     }

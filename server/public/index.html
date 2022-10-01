@@ -13,30 +13,65 @@
     <h1>Server Side Calculator</h1>
     <form id="inputForm">
         <label for="inputA">
-            <input id="inputA" type="number" min="0">
+            <input id="inputA" type="text">
         </label>
             <table>
                 <tr>
                     <td>
-                        <button type="button" class="operator" 
-                        data-operatortype="plusBtn" id="plusBtn">+</button>
+                        <button id="btn7" class="inputbtn" type="button">7</button>
                     </td>
                     <td>
-                        <button type="button" class="operator" id="minusBtn">-</button>
+                        <button id="btn8"  class="inputbtn" type="button">8</button>
                     </td>
                     <td>
-                        <button type="button" class="operator" id="multiplyBtn">*</button>
+                        <button id="btn9"  class="inputbtn" type="button">9</button>
                     </td>
                     <td>
-                        <button type="button" class="operator" id="deleteBtn">/</button>
+                        <button id="plusBtn" type="button" class="inputbtn operator" 
+                        data-operatortype="plusBtn">+</button>
+                    </td>
+                <tr>
+                    <td>
+                        <button id="btn4" class="inputbtn" type="button">4</button>
+                    </td>
+                    <td>
+                        <button id="btn5" class="inputbtn" type="button">5</button>
+                    </td>
+                    <td>
+                        <button id="btn6" class="inputbtn" type="button">6</button>
+                    </td>
+                    <td>
+                        <button id="minusBtn" type="button" class="inputbtn operator">-</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="btn1" class="inputbtn" type="button">1</button>
+                    </td>
+                    <td>
+                        <button id="btn2" class="inputbtn" type="button">2</button>
+                    </td>
+                    <td>
+                        <button id="btn3" class="inputbtn" type="button">3</button>
+                    </td>
+                    <td>
+                        <button id="multiplyBtn" type="button" class="inputbtn operator">*</button>
+                    </td>
+                </tr>
+                    <td>
+                        <button id="btn0" class="inputbtn" type="button">0</button>
+                    </td>
+                    <td>
+                        <button id="btnDot" class="inputbtn" type="button">.</button>
+                    </td>
+                    <td>
+                        <button type="submit" id="equalsBtn">=</button>
+                    </td>
+                    <td>
+                        <button id="divideBtn" type="button" class="inputbtn operator">/</button>
                     </td>
                 </tr>
             </table>
-        <label for="inputB">
-            <input id="inputB" type="number" min="0">
-        </label>
-        
-        <button type="submit" id="equalsBtn">=</button>
 
         <button type="button" id="clearBtn">C</button>
 
