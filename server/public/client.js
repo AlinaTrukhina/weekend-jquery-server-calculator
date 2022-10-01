@@ -17,7 +17,7 @@ console.log('so ready');
     $('#equalsBtn').on('click', onEquals);
     $('#equalsBtn').on('click', getSolutions);
 
-    $('#clearBtn').on('click', clearInputs);
+//    $('#clearBtn').on('click', clearInputs);
     
     $('#deleteHistBtn').on('click', deleteHistory);
 
@@ -28,9 +28,8 @@ console.log('so ready');
 }
 
 function addInput() {
-    console.log('in addInput', $(this));
     inputSingleDigit = $(this).data('input');
-    console.log('inputSingleDigit', inputSingleDigit);
+    // console.log('inputSingleDigit', inputSingleDigit);
     inputString = inputString + inputSingleDigit;
     console.log('inputString', inputString);
     $('#inputA').text(inputString);
@@ -53,7 +52,7 @@ function onEquals(evt) {
     evt.preventDefault();
 
     if (inputString == '') {
-        alert('only numbers and')
+        alert('need input!')
         return;
     }
 
@@ -72,7 +71,6 @@ function onEquals(evt) {
 
     .then(response => {
         console.log('POST calc inputs response', response);
-
     })
 
     .catch((err) => {
@@ -91,13 +89,13 @@ function getSolutions() {
     })    
 
     .then(response => {
-        calculations = response;
+//         calculations = response;
         console.log('calculations arr', calculations);
-        render();
+//         render();
     })
 
     .catch((err) => {
-        console.log('GET error:', err);
+        console.log('GET solutions error:', err);
     })
 
 
@@ -106,11 +104,11 @@ function getSolutions() {
 
 
 
-function clearInputs() {
-    $('#inputA').val('') // clear
-    $('#inputB').val('') // clear
-    operator = ''        // clear
-}
+// function clearInputs() {
+//     $('#inputA').val('') // clear
+//     $('#inputB').val('') // clear
+//     operator = ''        // clear
+// }
 
 // DELETE data from server
 function deleteHistory() {

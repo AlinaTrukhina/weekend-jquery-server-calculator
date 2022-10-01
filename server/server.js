@@ -21,10 +21,11 @@ app.post('/calc', (req, res) => {
 
 // send calc array to getSolutions() in client
 app.get('/calc', (req, res) => {
-  if (calculations === []) { return;}
+  if (calculations === []) {return;}
   // get last item in array
   let lastCalc = calculations[calculations.length-1];
-
+  lastCalc = lastCalc.inputA.split(' ');
+  //console.log(lastCalc);
   // set the solution property to new value
   lastCalc.solution = solver(lastCalc);
 
@@ -46,27 +47,44 @@ app.listen(3000, () => {
 
 // function compares the operator in calc object and performs the appropriate operation
 function solver(lastCalc) {
-  console.log('in solver:', lastCalc.operator);
-
-  switch (lastCalc.operator) {
-    case '+': 
-    console.log('in switch');
-    solution = Number(lastCalc.inputA) + Number(lastCalc.inputB);
-    console.log('solution', solution);
-    break;
-    case '-': 
-    solution = Number(lastCalc.inputA) - Number(lastCalc.inputB);
-    console.log('solution', solution);
-    break;
-    case '*': 
-    solution = Number(lastCalc.inputA) * Number(lastCalc.inputB);
-    console.log('solution', solution);
-    break;
-    case '/': 
-    solution = Number(lastCalc.inputA) / Number(lastCalc.inputB);
-    console.log('solution', solution);
-    break;
-    default: console.log('no match');
+  console.log('in solver:', lastCalc);
+  solution = lastCalc[0];
+   for (let i = 1; i<lastCalc.length; i+2) {
+    switch (lastCalc[i]) {
+      case '+': solution = solution + Number(lastCalc[i+1]);
+      break;
+      case '-': solution = solution - Number(lastCalc[i+1]);
+      break;
+      case '*': solution = solution * Number(lastCalc[i+1]);
+      break;
+      case '/': solution = solution / Number(lastCalc[i+1]);
+      break;
+      default: console.log('switch does not work');
+    }
   }
   return solution;
-}
+} // end solver
+
+
+  // switch (lastCalc.operator) {
+  //   case '+': 
+  //   console.log('in switch');
+  //   solution = Number(lastCalc.inputA) + Number(lastCalc.inputB);
+  //   console.log('solution', solution);
+  //   break;
+  //   case '-': 
+  //   solution = Number(lastCalc.inputA) - Number(lastCalc.inputB);
+  //   console.log('solution', solution);
+  //   break;
+  //   case '*': 
+  //   solution = Number(lastCalc.inputA) * Number(lastCalc.inputB);
+  //   console.log('solution', solution);
+  //   break;
+  //   case '/': 
+  //   solution = Number(lastCalc.inputA) / Number(lastCalc.inputB);
+  //   console.log('solution', solution);
+  //   break;
+  //   default: console.log('no match');
+  // }
+//   return solution;
+// }
