@@ -1,7 +1,8 @@
 $(document).ready(onReady);
 
 let calculations = [];
-let operator = '';
+//let operator = '';
+let inputString = '';
 
 function onReady() {
 console.log('so ready');
@@ -21,13 +22,16 @@ console.log('so ready');
 
     $('table').on('click', '.inputbtn', addInput);
 
-
 // render here or put it in a function below (GET?)
 //    render();
 }
 
 function addInput() {
-    console.log('in addInput');
+    console.log('in addInput', $(this));
+    inputSingleDigit = $(this).data('input');
+    console.log('inputSingleDigit', inputSingleDigit);
+    inputString = inputString + inputSingleDigit;
+    console.log('inputString', inputString);
 } //end addInput
 
 // selectPlus = () => operator = '+';
