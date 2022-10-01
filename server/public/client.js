@@ -141,6 +141,10 @@ function render() {
     </li>
     `);
     }
+}
+
+// unused code below
+
     // empty table in DOM
     //$('.newrow').remove();
 
@@ -155,4 +159,3 @@ function render() {
     //     </tr>
     //     `)
     //}
-}

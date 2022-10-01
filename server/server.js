@@ -83,6 +83,10 @@ function solver(newCalc) {
   //console.log('new solution', newsolution);
   return newsolution;
 }
+
+
+// unused code below
+
 //   solution = newCalc[0];
 //   console.log('starting solution', solution);
 //    for (let i = 1; i<(newCalc.length-1); i+1) {
