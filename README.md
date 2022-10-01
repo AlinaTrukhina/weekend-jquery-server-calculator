@@ -27,8 +27,8 @@ The calculator interface mirrors an ordinary calculator. The calculations are do
 
 ## Built With
 
-HTML
-CSS
-JavaScript
-jQuery
-Node.js
+- HTML
+- CSS
+- JavaScript
+- jQuery
+- Node.js
