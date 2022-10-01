@@ -18,23 +18,28 @@
             <table>
                 <tr>
                     <td>
-                        <button type="button" id="plusBtn">+</button>
+                        <button type="button" class="operator" 
+                        data-operatortype="plusBtn" id="plusBtn">+</button>
                     </td>
                     <td>
-                        <button type="button" id="minusBtn">-</button>
+                        <button type="button" class="operator" id="minusBtn">-</button>
                     </td>
                     <td>
-                        <button type="button" id="multiplyBtn">*</button>
+                        <button type="button" class="operator" id="multiplyBtn">*</button>
                     </td>
                     <td>
-                        <button type="button" id="deleteBtn">/</button>
+                        <button type="button" class="operator" id="deleteBtn">/</button>
                     </td>
                 </tr>
             </table>
         <label for="inputB">
             <input id="inputB" type="number" min="0">
         </label>
+        
         <button type="submit" id="equalsBtn">=</button>
+
+        <button type="button" id="clearBtn">C</button>
+
     </form>
 
     <h2>TEST ANSWER</h2>
