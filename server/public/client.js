@@ -6,13 +6,8 @@ let inputString = '';
 let inputSingleDigit = '';
 
 function onReady() {
-console.log('so ready');
+console.log('Calculator is ready!');
 // event listeners
-
-    // $('#plusBtn').on('click', selectPlus);
-    // $('#minusBtn').on('click', selectMinus);
-    // $('#multiplyBtn').on('click', selectMultiply);
-    // $('#divideBtn').on('click', selectDivide);
 
     $('#equalsBtn').on('click', onEquals);
     $('#equalsBtn').on('click', getSolutions);
@@ -23,17 +18,16 @@ console.log('so ready');
 
     $('table').on('click', '.inputbtn', addInput);
 
-// render here or put it in a function below (GET?)
-//    render();
 }
 
 function addInput() {
     inputSingleDigit = $(this).data('input');
 //     console.log('inputSingleDigit', inputSingleDigit);
+//  remove leading zero from input string (if zero exists) 
     if (inputString === '0') {
         inputString = ''; // reset string to nothing so that the leading zero doesn't appear
     }
-    inputString = inputString + inputSingleDigit;
+    inputString = String(inputString) + String(inputSingleDigit);
 //    console.log('inputString', inputString);
     $('#inputA').text(inputString);
     if (inputSingleDigit === ' + ' ||
@@ -44,11 +38,6 @@ function addInput() {
     } else {$('.operator').attr('disabled', false);
     }
 } //end addInput
-
-// selectPlus = () => operator = '+';
-// selectMinus = () => operator = '-';
-// selectMultiply = () => operator = '*';
-// selectDivide = () => operator = '/';
 
 // POST input data to server
 function onEquals(evt) {
@@ -61,8 +50,8 @@ function onEquals(evt) {
 
     // create new object to send to server
     newCalc = {
-        inputA : inputString, // string
-        solution : ''                // string (will be converted to numer later)
+        inputA : inputString, // is a string
+        solution : ''         // is a string (will be converted to numer later)
     }
     //console.log(newCalc);
 
@@ -107,7 +96,7 @@ function clearInputs() {
     inputString = '0'; // clear
     console.log('in clear', inputString);
     $('#inputA').text('0');
-}
+} // end clearInputs
 
 // DELETE data from server
 function deleteHistory() {
@@ -126,14 +115,15 @@ function deleteHistory() {
         console.log('GET error:', err);
     })
     clearInputs();
-}
+} // end deleteHistory()
 
 function render() {
     console.log('in render');
     $('#answerField').text(`${inputString}`);
     $('#inputA').text(`${inputString}`);
     $('#calcList').empty();
-    console.log(calculations[0].inputA);
+
+    // for loop to append every stored solution 
     for (let i=0; i < calculations.length; i++) {
     $('#calcList').append(`
     <li>
@@ -142,20 +132,3 @@ function render() {
     `);
     }
 }
-
-// unused code below
-
-    // empty table in DOM
-    //$('.newrow').remove();
-
-    // put calc array in DOM
-    // for (let i=0; i < calculations.length; i++) {
-    //     $('#calcTable').append(`
-    //     <tr class="newrow>
-    //         <td>${calculations[i].inputA}</td>
-    //         <td>${calculations[i].operator}</td>
-    //         <td>${calculations[i].inputB}</td>
-    //         <td>${calculations[i].solution}</td>
-    //     </tr>
-    //     `)
-    //}
