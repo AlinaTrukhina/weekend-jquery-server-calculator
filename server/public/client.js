@@ -16,7 +16,8 @@ console.log('so ready');
     $('#equalsBtn').on('click', getSolutions);
 
     $('#clearBtn').on('click', clearInputs);
-
+    
+    $('#deleteHistBtn').on('click', deleteHistory);
 
 // render here or put it in a function below (GET?)
 //    render();
@@ -86,14 +87,30 @@ function getSolutions() {
 
 }; // end getSolutions()
 
-// DELETE data from server
 
-// call the get function
 
 function clearInputs() {
     $('#inputA').val('') // clear
     $('#inputB').val('') // clear
     operator = ''        // clear
+}
+
+// DELETE data from server
+function deleteHistory() {
+    $.ajax({
+        url: '/calcs',
+        method: 'DELETE'
+    })  
+
+    .then(response => {
+        getSolutions();
+        console.log('calculations arr', response);
+        render();
+    })
+
+    .catch((err) => {
+        console.log('GET error:', err);
+    })
 }
 
 function render() {

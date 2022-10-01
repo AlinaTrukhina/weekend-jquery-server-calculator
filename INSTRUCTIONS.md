@@ -39,7 +39,7 @@ server - app.delete
 - 
 
 *** Stretch Mode ***
-1
+DONE 1
 client.js
  - inputs - if empty on submit, alert "fill all inputs", return
 
