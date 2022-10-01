@@ -5,7 +5,12 @@ submit
 clear
 
 *** Base Mode ***
-client - POST
+client - selectOperator()
+called by event listener.
+figures out where in the table it is and saves info in global variable.
+variable then used by onEquals().
+
+client - POST - onEquals()
 sends object {
 - input a
 - input b
