@@ -18,7 +18,7 @@ sends object {
 - answer (blank)
 }
 
-client - GET
+DONE client - GET
 gets array that includes answer in object
 - render()
 
@@ -29,7 +29,7 @@ DONE server - app.post
 - store input values - push to calculations array
 - send back a status 201
 
-server - app.get
+DONE server - app.get
 - Call up function to perform operation.
 - Switch function!
 - add result to last calc object in array

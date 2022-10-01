@@ -15,6 +15,8 @@ console.log('so ready');
     $('#equalsBtn').on('click', onEquals);
     $('#equalsBtn').on('click', getSolutions);
 
+    $('#clearBtn').on('click', clearInputs);
+
 
 // render here or put it in a function below (GET?)
 //    render();
@@ -59,10 +61,6 @@ function onEquals(evt) {
         console.log('POST error', err);
     })
 
-    $('#inputA').val('') // clear
-    $('#inputB').val('') // clear
-    operator = ''        // clear
-
 }
 
 // GET new array with answers from server
@@ -92,6 +90,11 @@ function getSolutions() {
 
 // call the get function
 
+function clearInputs() {
+    $('#inputA').val('') // clear
+    $('#inputB').val('') // clear
+    operator = ''        // clear
+}
 
 function render() {
     console.log('in render');
