@@ -10,7 +10,7 @@ console.log('Calculator is ready!');
 // event listeners
 
     $('#equalsBtn').on('click', onEquals);
-    $('#equalsBtn').on('click', getSolutions);
+//    $('#equalsBtn').on('click', getSolutions);
 
     $('#clearBtn').on('click', clearInputs);
     
@@ -63,6 +63,7 @@ function onEquals(evt) {
 
     .then(response => {
         console.log('POST calc inputs response', response);
+        getSolutions();
     })
 
     .catch((err) => {
