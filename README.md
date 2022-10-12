@@ -7,6 +7,9 @@ Implement a server side calculator:
 
 The calculator interface mirrors an ordinary calculator. The calculations are done on the server, and stored there until the user clears the inputs.
 
+To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](http://3.134.101.152:3000/)
+
+
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/en/)
