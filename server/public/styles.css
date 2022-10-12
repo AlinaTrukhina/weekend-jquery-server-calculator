@@ -30,12 +30,14 @@ h1 {
 
 #inputA {
     background-color: #666060;
+    border-radius: 5px;
     font-size: large;
     margin: 4px;
     padding: 5px;
 }
 
 #calculatordiv {
+    border-radius: 10px;
     background-color: #363535;
     color: white;
     border: 5px solid black;

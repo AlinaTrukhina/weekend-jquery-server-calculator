@@ -22,13 +22,13 @@ console.log('Calculator is ready!');
 
 function addInput() {
     inputSingleDigit = $(this).data('input');
-//     console.log('inputSingleDigit', inputSingleDigit);
+    //console.log('inputSingleDigit', inputSingleDigit);
 //  remove leading zero from input string (if zero exists) 
     if (inputString === '0') {
         inputString = ''; // reset string to nothing so that the leading zero doesn't appear
     }
     inputString = String(inputString) + String(inputSingleDigit);
-//    console.log('inputString', inputString);
+    //console.log('inputString', inputString);
     $('#inputA').text(inputString);
     if (inputSingleDigit === ' + ' ||
     inputSingleDigit === ' - ' ||
@@ -53,7 +53,7 @@ function onEquals(evt) {
         inputA : inputString, // is a string
         solution : ''         // is a string (will be converted to numer later)
     }
-    //console.log(newCalc);
+    console.log(newCalc);
 
     $.ajax({
         url: '/calc',
@@ -69,6 +69,8 @@ function onEquals(evt) {
     .catch((err) => {
         console.log('POST error', err);
     })
+
+
 }
 
 // GET new array with answers from server
@@ -119,7 +121,7 @@ function deleteHistory() {
 } // end deleteHistory()
 
 function render() {
-    console.log('in render');
+    //console.log('in render');
     $('#answerField').text(`${inputString}`);
     $('#inputA').text(`${inputString}`);
     $('#calcList').empty();

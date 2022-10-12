@@ -15,8 +15,17 @@ app.use(express.static('server/public'));
 app.post('/calc', (req, res) => {
   let newCalc = req.body;
   console.log('posted calc object:', newCalc);
-
   calculations.push(newCalc);
+  
+  newCalcArray = newCalc.inputA.split(' ');
+  //console.log(newCalc);
+  solver(newCalcArray);
+
+  // set the solution property to new value
+  console.log('new solution', newsolution);
+  calculations[calculations.length-1].solution = newsolution;
+  
+  console.log('calc array is now:', calculations);
 
   res.sendStatus(201);
 }); // end POST
@@ -24,15 +33,8 @@ app.post('/calc', (req, res) => {
 // send calc array to getSolutions() in client
 app.get('/calc', (req, res) => {
   if (calculations === []) {return;}
-  // get last item in array
-  let newCalc = calculations[calculations.length-1];
-  newCalc = newCalc.inputA.split(' ');
-  //console.log(newCalc);
-  // set the solution property to new value
-  solver(newCalc);
-  console.log('new solution', newsolution);
-  calculations[calculations.length-1].solution = newsolution;
-  console.log('calc array is now:', calculations);
+
+
   res.send(calculations); // sends array to client
 
 }); // end GET
