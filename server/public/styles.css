@@ -1,10 +1,20 @@
+
+
 html {
-    background-color: #b9c0cb;
+    height: 100%;
+    background-image: linear-gradient(45deg, rgb(215, 234, 254), #839eca); 
+    /* background-color: #b9c0cb; */
     color: black;
 }
 
 h1 {
     font-size: x-large;
+    margin-left: 3%;
+}
+
+h2 {
+
+    margin-left: 3%;
 }
 
 .inputbtn {
@@ -43,6 +53,7 @@ h1 {
     border: 5px solid black;
     width: fit-content;
     padding: 5px;
+    margin-left: 3%;
 }
 
 #deleteHistBtn {

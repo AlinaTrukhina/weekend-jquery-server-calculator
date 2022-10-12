@@ -127,7 +127,7 @@ function render() {
     $('#calcList').empty();
 
     // for loop to append every stored solution 
-    for (let i=0; i < calculations.length; i++) {
+    for (let i=(calculations.length-1); i > 0; i--) {
     $('#calcList').append(`
     <li>
     ${calculations[i].inputA} = ${calculations[i].solution}
