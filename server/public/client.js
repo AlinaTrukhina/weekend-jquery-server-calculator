@@ -7,6 +7,8 @@ let inputSingleDigit = '';
 
 function onReady() {
 console.log('Calculator is ready!');
+getSolutions();
+
 // event listeners
 
     $('#equalsBtn').on('click', onEquals);
@@ -23,7 +25,7 @@ console.log('Calculator is ready!');
 function addInput() {
     inputSingleDigit = $(this).data('input');
     //console.log('inputSingleDigit', inputSingleDigit);
-//  remove leading zero from input string (if zero exists) 
+    //  remove leading zero from input string (if zero exists) 
     if (inputString === '0') {
         inputString = ''; // reset string to nothing so that the leading zero doesn't appear
     }
