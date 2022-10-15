@@ -34,7 +34,6 @@ app.post('/calc', (req, res) => {
 app.get('/calc', (req, res) => {
   if (calculations === []) {return;}
 
-
   res.send(calculations); // sends array to client
 
 }); // end GET
@@ -81,10 +80,9 @@ function solver(newCalc) {
       break;
       default: console.log('switch does not work');
     }
+    newsolution = Math.round(100*newsolution)/100;
+    console.log(newsolution);
   }
   //console.log('new solution', newsolution);
   return newsolution;
 }
-
-
-

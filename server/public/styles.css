@@ -1,5 +1,4 @@
 
-
 html {
     height: 100%;
     background-image: linear-gradient(45deg, rgb(215, 234, 254), #839eca); 
@@ -15,6 +14,12 @@ h1 {
 h2 {
 
     margin-left: 3%;
+}
+
+h3 {
+    font-size: 1.1em;
+    margin: 5px 0;
+    text-align: center;
 }
 
 .inputbtn {
@@ -46,6 +51,10 @@ h2 {
     padding: 5px;
 }
 
+.container {
+    width: 228px;
+}
+
 #calculatordiv {
     border-radius: 10px;
     background-color: #363535;
@@ -63,4 +72,15 @@ h2 {
 
 #calcList {
     margin-left: 2%;
+    list-style-position:inside;
+    padding: 0px 5px;
 }
+
+#resultsSection {
+    border: solid 2px rgba(46, 46, 140, 0.704);
+    border-radius: 10px;
+    margin-left: 2.8%;
+    width: inherit;
+    padding: 5px;
+}
+

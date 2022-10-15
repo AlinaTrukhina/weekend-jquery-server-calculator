@@ -87,7 +87,11 @@ function getSolutions() {
     .then(response => {
         calculations = response;
         console.log('calculations arr', calculations);
+        if (calculations.length === 0){
+            inputString = 0;
+        } else {
         inputString = calculations[calculations.length-1].solution;
+        }
         render();
     })
 
@@ -129,7 +133,8 @@ function render() {
     $('#calcList').empty();
 
     // for loop to append every stored solution 
-    for (let i=(calculations.length-1); i > 0; i--) {
+    calculations.reverse();
+    for (let i=0; i<calculations.length; i++) {
     $('#calcList').append(`
     <li>
     ${calculations[i].inputA} = ${calculations[i].solution}
