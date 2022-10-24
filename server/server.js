@@ -45,8 +45,8 @@ app.delete('/delete', (req, res) => {
   res.send(calculations);
 });
 
-app.listen(3000, () => {
-    console.log ('Server is running on port 3000');
+app.listen(3001, () => {
+    console.log ('Server is running on port 3001');
   })
 
 // function compares the operator in calc object and performs the appropriate operation
@@ -81,7 +81,7 @@ function solver(newCalc) {
       default: console.log('switch does not work');
     }
     newsolution = Math.round(100*newsolution)/100;
-    console.log(newsolution);
+    //console.log(newsolution);
   }
   //console.log('new solution', newsolution);
   return newsolution;
