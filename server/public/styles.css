@@ -53,6 +53,7 @@ h3 {
 }
 
 .container {
+    margin: auto;
     width: 228px;
 }
 
