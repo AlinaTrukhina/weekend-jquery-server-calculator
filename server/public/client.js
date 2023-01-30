@@ -26,7 +26,7 @@ function addInput() {
     inputSingleDigit = $(this).data('input');
     //console.log('inputSingleDigit', inputSingleDigit);
     //  remove leading zero from input string (if zero exists) 
-    if (inputString === '0') {
+    if (inputString == '0') {
         inputString = ''; // reset string to nothing so that the leading zero doesn't appear
     }
     inputString = String(inputString) + String(inputSingleDigit);
