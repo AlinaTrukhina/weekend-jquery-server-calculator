@@ -45,9 +45,9 @@ app.delete('/delete', (req, res) => {
   res.send(calculations);
 });
 
-app.listen(3001, () => {
-    console.log ('Server is running on port 3001');
-  })
+// app.listen(3001, () => {
+//     console.log ('Server is running on port 3001');
+//   })
 
 // function compares the operator in calc object and performs the appropriate operation
 function solver(newCalc) {
@@ -86,3 +86,9 @@ function solver(newCalc) {
   //console.log('new solution', newsolution);
   return newsolution;
 }
+
+// Use the `PORT` env var, if it's set
+// otherwise, default to port 3000
+const PORT = process.env.PORT || 3000;
+// ...
+app.listen(PORT, /* ... */);
