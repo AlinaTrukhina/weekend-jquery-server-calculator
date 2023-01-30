@@ -1,7 +1,7 @@
 $(document).ready(onReady);
 
 let calculations = [];
-//let operator = '';
+
 let inputString = '';
 let inputSingleDigit = '';
 
@@ -9,17 +9,12 @@ function onReady() {
 console.log('Calculator is ready!');
 getSolutions();
 
-// event listeners
-
+    // event listeners
     $('#equalsBtn').on('click', onEquals);
-//    $('#equalsBtn').on('click', getSolutions);
-
+    // $('#equalsBtn').on('click', getSolutions);
     $('#clearBtn').on('click', clearInputs);
-    
     $('#deleteHistBtn').on('click', deleteHistory);
-
     $('table').on('click', '.inputbtn', addInput);
-
 }
 
 function addInput() {
