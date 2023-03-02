@@ -89,6 +89,6 @@ function solver(newCalc) {
 
 // Use the `PORT` env var, if it's set
 // otherwise, default to port 3000
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3003;
 // ...
 app.listen(PORT, /* ... */);
